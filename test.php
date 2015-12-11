@@ -31,7 +31,7 @@ $location->setFilter('person', 1);
 
 print_r($location->data());
 
-$location->delete();
+$location->remove();
 
 $location->clearFilters();
 

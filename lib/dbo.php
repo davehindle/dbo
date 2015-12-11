@@ -83,7 +83,7 @@ class entity {
 		if (!$this->conn->query($sql)) throw new exception($this->conn->error);
 	}
 
-	function delete($forceful = false) {
+	function remove($forceful = false) {
 		$from = $this->schema.".".$this->name;
 		$where = '';
 
