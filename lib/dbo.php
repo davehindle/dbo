@@ -6,6 +6,7 @@ class entity {
 	private $conn;
 	public $columns = false;
 	private $join = false;
+	public $filters = array();
 
 	function __construct($conn, $t, $d = false) {
 		$this->conn = $conn;
@@ -34,18 +35,18 @@ class entity {
 		$this->describe(true);
 	}
 
-	function setFilter($c, $v, $o = '=') {
+	function addFilter($f) {
 		$this->describe();
 
-		if (array_key_exists($c, $this->columns)) {
-			$this->columns[$c]['operand'] = $v;
-			$this->columns[$c]['operator'] = $o;
+		foreach($f->constraints as $c) {
+			if (!array_key_exists($c->column, $this->columns)) throw new exception('Column '.$c->column.' does not exist in table '.$this->schema.'.'.$this->name);
 		}
-		else throw new exception("Column $c does not exist");
+
+		$this->filters[] = $f;
 	}
 
 	function clearFilters() {
-		$this->describe(true);
+		$this->filters = array();
 	}
 
 	function create($forceful = false) {
@@ -120,12 +121,20 @@ class entity {
 
 			$from .= ($from == '' ? "" : ", ")."".$table->schema.".".$table->name." AS ".sprintf("t%04d", $tn)."";
 
+			$t1 = sprintf("t%04d", $tn);
+			$t2 = sprintf("t%04d", $tn+1);
+
+			foreach ($table->filters as $f) {
+				$subclause = '';
+
+				foreach ($f->constraints as $c) {
+					$subclause .= ($subclause == '' ? '' : ' AND ')."$t1.".$c->column." ".$c->operator." '".$this->conn->real_escape_string($c->operand)."'";
+				}
+
+				if ($subclause !== '') $where .= ($where == '' ? '' : ' OR ')."($subclause)";
+			}
+
 			foreach ($table->columns as $column => $def) {
-				$t1 = sprintf("t%04d", $tn);
-				$t2 = sprintf("t%04d", $tn+1);
-
-				if (isset($def['operand'])) $where .= ($where == '' ? '' : ' AND ')."$t1.".$def['column_name']." ".$def['operator']." '".$this->conn->real_escape_string($def['operand'])."'";
-
 				if (isset($def['join_column'])) {
 					$where .= ($where == '' ? '' : ' AND ')."$t1.".$def['column_name']." = $t2.".$def['join_column']."";
 
@@ -183,6 +192,34 @@ class entity {
 		}
 
 		return $ret;
+	}
+}
+
+class constraint {
+	public $column;
+	public $operand;
+	public $operator;
+
+	function __construct($column, $operand, $operator = '=') {
+		$this->column = $column;
+		$this->operand = $operand;
+		$this->operator = $operator;
+	}
+}
+
+class filter {
+	public $constraints = array();
+
+	function __construct($c = false) {
+		if ($c) $this->add($c);
+	}
+
+	function add($c) {
+		$this->constraints[] = $c;
+	}
+
+	function clear() {
+		$this->constraints = array();
 	}
 }
 
