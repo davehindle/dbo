@@ -21,9 +21,9 @@ data()
 
 Fetches all relevant data from the entity.
 
-setFilter(column, value [, operator]);
+addFilter(filter);
 
-Restricts the scope of data, modify and remove methods (select, update and delete).
+Restricts the scope of data, modify and remove methods (select, update and delete). Each filter added is treated as a separate optional filter (either one or other filter must be met).
 
 clearFilters();
 
@@ -44,3 +44,20 @@ Sets a value to be applied to all relevant rows when the entity is modified.
 clearValues();
 
 Remove all values (to allow the entity to be used for another update using different values).
+
+constraint
+----------
+
+A constraint object defines a single restriction of the applicable data. 
+
+$c = new constraint(column, value, operand = '=');
+
+filter
+------
+
+A filter is composed of constraints and is used to restict the visible data in the entity. A single entity object may have no filters, one filter or a number of filters. Each filter is used to define a different set of data so the result is an either / or.
+
+$f = new filter();
+$f = new filter($c);
+
+$f->add($c);
