@@ -168,7 +168,6 @@ class entity {
 		$where .= ($where2 == '' ? "" : ($where == '' ? " WHERE " : " AND ")."($where2)");
 
 		$sql = "SELECT $select FROM $from$where";
-echo $sql."\n";
 
 		if (!$result = $this->conn->query($sql)) throw new exception($this->conn->error);
 
@@ -211,14 +210,23 @@ echo $sql."\n";
 }
 
 class constraint {
+	const EQ = 1;
+	const LT = 2;
+	const GT = 3;
+	const LTE = 4;
+	const GTE = 5;
+	const NE = 6;
+
 	public $column;
 	public $operand;
 	public $operator;
 
-	function __construct($column, $operand, $operator = '=') {
+	function __construct($column, $operand, $operator = constraint::EQ) {
+		$ops=array(constraint::EQ => '=', constraint::LT => '<', constraint::GT => '>', constraint::LTE => '<=', constraint::GTE => '>=', constraint::NE => '<>');
+
 		$this->column = $column;
 		$this->operand = $operand;
-		$this->operator = $operator;
+		$this->operator = $ops[$operator];
 	}
 }
 
