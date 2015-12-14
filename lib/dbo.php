@@ -104,7 +104,8 @@ class entity {
 
 		$select = '';
 		$from = '';
-		$where = '';
+		$where1 = '';
+		$where2 = '';
 
 		$table = $this;
 		$tn = 0;
@@ -131,12 +132,12 @@ class entity {
 					$subclause .= ($subclause == '' ? '' : ' AND ')."$t1.".$c->column." ".$c->operator." '".$this->conn->real_escape_string($c->operand)."'";
 				}
 
-				if ($subclause !== '') $where .= ($where == '' ? '' : ' OR ')."($subclause)";
+				if ($subclause !== '') $where1 .= ($where1 == '' ? '' : ' OR ')."($subclause)";
 			}
 
 			foreach ($table->columns as $column => $def) {
 				if (isset($def['join_column'])) {
-					$where .= ($where == '' ? '' : ' AND ')."$t1.".$def['column_name']." = $t2.".$def['join_column']."";
+					$where2 .= ($where2 == '' ? '' : ' AND ')."$t1.".$def['column_name']." = $t2.".$def['join_column']."";
 
 					if (!$showKeys) {
 						$hide[$tn][] = "$t1-".$def['column_name'];
@@ -162,7 +163,12 @@ class entity {
 			}
 		}
 
-		$sql = "SELECT $select FROM $from".($where == '' ? "" : " WHERE $where");
+		$where = '';
+		$where .= ($where1 == '' ? "" : ($where == '' ? " WHERE " : " AND ")."($where1)");
+		$where .= ($where2 == '' ? "" : ($where == '' ? " WHERE " : " AND ")."($where2)");
+
+		$sql = "SELECT $select FROM $from$where";
+echo $sql."\n";
 
 		if (!$result = $this->conn->query($sql)) throw new exception($this->conn->error);
 
@@ -183,10 +189,19 @@ class entity {
 	function join($t, $j) {
 		$this->describe();
 
-		$ret = $this;
+		if ($this->join) throw new exception("Entity is already joined - chain your joins such that each new join is on an unjoined entity");
+
+		$ret = clone $this;
 		$ret->join = $t;
 
 		foreach ($j as $from => $to) {
+			if (!array_key_exists($from, $this->columns)) throw new Exception("Colunm $from not found in table ".$this->schema.".".$this->name);
+
+			if (!array_key_exists($to, $t->columns)) {
+				if (($t->join) && (array_key_exists($to, $t->join->columns))) throw new Exception("Inverted join chain link - please use only forward chains");
+				else throw new Exception("Colunm $to not found in table ".$t->schema.".".$t->name);
+			}
+
 			$ret->columns[$from]['column_name'] = $from;
 			$ret->columns[$from]['join_column'] = $to;
 		}

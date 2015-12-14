@@ -11,6 +11,24 @@ $people = new entity($store, 'people', 'dave');
 $location = new entity($store, 'location', 'dave');
 $places = new entity($store, 'places', 'dave');
 
+$j1 = $location->join($people, array('person' => 'id'));
+
+try {
+	$j2 = $j1->join($places, array('place' => 'id'));
+}
+catch (exception $e) {
+	echo $e->getMessage()."\n";
+}
+
+$j3 = $places->join($j1, array('id' => 'place'));
+
+print_r($j3->data());
+
+$j4 = $people->join($location, array('id' => 'person'));
+$j5 = $places->join($j4, array('id' => 'place'));
+
+print_r($j5->data());
+
 $f = new filter();
 $f->add(new constraint('name', 'Home'));
 $f->add(new constraint('id', 3));
