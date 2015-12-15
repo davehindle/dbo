@@ -1,5 +1,6 @@
-\hypertarget{classentity}{}\section{entity Class Reference}
+\hypertarget{classentity}{\section{entity Class Reference}
 \label{classentity}\index{entity@{entity}}
+}
 
 
 object used to represent either a connection to a database table or the result of a join  
@@ -8,44 +9,44 @@ object used to represent either a connection to a database table or the result o
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classentity_a2411a96bf911703bf07e8bac90ffa7f7}{\+\_\+\+\_\+construct} (\$\hyperlink{classstore}{store}, \$t, \$d=false)
+\hyperlink{classentity_a2411a96bf911703bf07e8bac90ffa7f7}{\-\_\-\-\_\-construct} (\$\hyperlink{classstore}{store}, \$t, \$d=false)
 \item 
 \hyperlink{classentity_a3782e4d51b5f4e688676843e12450a94}{describe} (\$erase=false)
 \begin{DoxyCompactList}\small\item\em Load the specification of the base table columns into the columns attribute. \end{DoxyCompactList}\item 
-\hyperlink{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}{set\+Value} (\$c, \$v)
+\hyperlink{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}{set\-Value} (\$c, \$v)
 \begin{DoxyCompactList}\small\item\em Set a column value Use this method to set a column value to be used in a create or modify operation. Set as many values as you need before issuing the create or modify. \end{DoxyCompactList}\item 
-\hypertarget{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}{}\hyperlink{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}{clear\+Values} ()\label{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}
+\hypertarget{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}{\hyperlink{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}{clear\-Values} ()}\label{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}
 
 \begin{DoxyCompactList}\small\item\em Clear any values that have been set for columns in the entity Call this on an entity that has been used for a create or modify operation already and is going to be reused for a different operation. \end{DoxyCompactList}\item 
-\hyperlink{classentity_a7041812e724f4d4e92f7350ac1ca4730}{add\+Filter} (\$f)
+\hyperlink{classentity_a7041812e724f4d4e92f7350ac1ca4730}{add\-Filter} (\$f)
 \begin{DoxyCompactList}\small\item\em Add a filter to this entity An entity can be associated with any number of filters. Data visible in the entity must satisfy at least one of the filters. Filters apply to data, modify and delete operations. \end{DoxyCompactList}\item 
-\hypertarget{classentity_a3c82e6e7a3a2c79306206db541d2a343}{}\hyperlink{classentity_a3c82e6e7a3a2c79306206db541d2a343}{clear\+Filters} ()\label{classentity_a3c82e6e7a3a2c79306206db541d2a343}
+\hypertarget{classentity_a3c82e6e7a3a2c79306206db541d2a343}{\hyperlink{classentity_a3c82e6e7a3a2c79306206db541d2a343}{clear\-Filters} ()}\label{classentity_a3c82e6e7a3a2c79306206db541d2a343}
 
 \begin{DoxyCompactList}\small\item\em Remove all filters registered on this entity. \end{DoxyCompactList}\item 
-\hypertarget{classentity_aa093f16b8fa83dcba92779df20f8a53f}{}\hyperlink{classentity_aa093f16b8fa83dcba92779df20f8a53f}{create} (\$forceful=false)\label{classentity_aa093f16b8fa83dcba92779df20f8a53f}
+\hypertarget{classentity_aa093f16b8fa83dcba92779df20f8a53f}{\hyperlink{classentity_aa093f16b8fa83dcba92779df20f8a53f}{create} (\$forceful=false)}\label{classentity_aa093f16b8fa83dcba92779df20f8a53f}
 
-\begin{DoxyCompactList}\small\item\em Create a new record in the database The record will have its column values set using any set\+Value operations that have been executed since the entity was created or since clear\+Values was last issued. Note that any columns not populated in this way must either allow null values or have a default defined in the table definition. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Create a new record in the database The record will have its column values set using any set\-Value operations that have been executed since the entity was created or since clear\-Values was last issued. Note that any columns not populated in this way must either allow null values or have a default defined in the table definition. \end{DoxyCompactList}\item 
 \hyperlink{classentity_a93f973ae16957a93f792003a89a13be0}{modify} (\$forceful=false)
-\begin{DoxyCompactList}\small\item\em Modify a database record All records matching any filters put on the entity will be modified. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. The columns to be changed and their new values should be set using one set\+Value operation for each column. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Modify a database record All records matching any filters put on the entity will be modified. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. The columns to be changed and their new values should be set using one set\-Value operation for each column. \end{DoxyCompactList}\item 
 \hyperlink{classentity_a67aada7aaf1810524e8ae93992f2900c}{remove} (\$forceful=false)
-\begin{DoxyCompactList}\small\item\em Remove records from the database table This method will remove all records from the entity\textquotesingle{}s base table that match any of the filters that have been applied to it. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. \end{DoxyCompactList}\item 
-\hyperlink{classentity_adfb66dcc511ef54670c2999d9f716eb9}{data} (\$show\+Keys=false)
-\begin{DoxyCompactList}\small\item\em Gets all applicable entity data This method returns an array containing all data in the base table that match any of the filters currently applied to the entity. The return value is an array of arrays of the following structure\+: \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Remove records from the database table This method will remove all records from the entity's base table that match any of the filters that have been applied to it. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. \end{DoxyCompactList}\item 
+\hyperlink{classentity_adfb66dcc511ef54670c2999d9f716eb9}{data} (\$show\-Keys=false)
+\begin{DoxyCompactList}\small\item\em Gets all applicable entity data This method returns an array containing all data in the base table that match any of the filters currently applied to the entity. The return value is an array of arrays of the following structure\-: \end{DoxyCompactList}\item 
 \hyperlink{classentity_a4d4ed92c955fe0e4160ae7572e693be7}{join} (\$t, \$j)
 \begin{DoxyCompactList}\small\item\em Create an entity representing a join This method creates a new entity containing sufficient information to join the data relevant to two other entities. The data encapsulated in the resultant entity can be viewed using the data method and joined with another entity. Note that for a joined entity to be joined again, the second join must be over columns in the main entity in the first join, not the entity with which it was joined (see Join Chaining). \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{classentity_ae35f24992703a71e751ed6afa981380f}{}\hyperlink{classentity_ae35f24992703a71e751ed6afa981380f}{\$name}\label{classentity_ae35f24992703a71e751ed6afa981380f}
+\hypertarget{classentity_ae35f24992703a71e751ed6afa981380f}{\hyperlink{classentity_ae35f24992703a71e751ed6afa981380f}{\$name}}\label{classentity_ae35f24992703a71e751ed6afa981380f}
 
 \begin{DoxyCompactList}\small\item\em Database table name. \end{DoxyCompactList}\item 
-\hypertarget{classentity_a8ce4fa273c17d68fff1dd173a704b109}{}\hyperlink{classentity_a8ce4fa273c17d68fff1dd173a704b109}{\$schema}\label{classentity_a8ce4fa273c17d68fff1dd173a704b109}
+\hypertarget{classentity_a8ce4fa273c17d68fff1dd173a704b109}{\hyperlink{classentity_a8ce4fa273c17d68fff1dd173a704b109}{\$schema}}\label{classentity_a8ce4fa273c17d68fff1dd173a704b109}
 
 \begin{DoxyCompactList}\small\item\em Name of table schema (not pgsql database) \end{DoxyCompactList}\item 
-\hypertarget{classentity_a4d04649f2fb9b66924ce6a0f23633541}{}\hyperlink{classentity_a4d04649f2fb9b66924ce6a0f23633541}{\$columns} = false\label{classentity_a4d04649f2fb9b66924ce6a0f23633541}
+\hypertarget{classentity_a4d04649f2fb9b66924ce6a0f23633541}{\hyperlink{classentity_a4d04649f2fb9b66924ce6a0f23633541}{\$columns} = false}\label{classentity_a4d04649f2fb9b66924ce6a0f23633541}
 
 \begin{DoxyCompactList}\small\item\em Array containing table column information. \end{DoxyCompactList}\item 
-\hypertarget{classentity_a59f264aa884262d60bf96c1b750ffba8}{}\hyperlink{classentity_a59f264aa884262d60bf96c1b750ffba8}{\$filters} = array()\label{classentity_a59f264aa884262d60bf96c1b750ffba8}
+\hypertarget{classentity_a59f264aa884262d60bf96c1b750ffba8}{\hyperlink{classentity_a59f264aa884262d60bf96c1b750ffba8}{\$filters} = array()}\label{classentity_a59f264aa884262d60bf96c1b750ffba8}
 
 \begin{DoxyCompactList}\small\item\em Array containing registered filters. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
@@ -54,18 +55,18 @@ object used to represent either a connection to a database table or the result o
 object used to represent either a connection to a database table or the result of a join 
 
 \subsection{Constructor \& Destructor Documentation}
-\hypertarget{classentity_a2411a96bf911703bf07e8bac90ffa7f7}{}\index{entity@{entity}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
-\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!entity@{entity}}
-\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::\+\_\+\+\_\+construct (
+\hypertarget{classentity_a2411a96bf911703bf07e8bac90ffa7f7}{\index{entity@{entity}!\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}}
+\index{\-\_\-\-\_\-construct@{\-\_\-\-\_\-construct}!entity@{entity}}
+\subsubsection[{\-\_\-\-\_\-construct}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::\-\_\-\-\_\-construct (
 \begin{DoxyParamCaption}
 \item[{}]{\$store, }
 \item[{}]{\$t, }
 \item[{}]{\$d = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}\label{classentity_a2411a96bf911703bf07e8bac90ffa7f7}
+)}}\label{classentity_a2411a96bf911703bf07e8bac90ffa7f7}
 
 \begin{DoxyParams}{Parameters}
-{\em \$store} & D\+B\+O store object containing database connection \\
+{\em \$store} & D\-B\-O store object containing database connection \\
 \hline
 {\em \$t} & Database table name \\
 \hline
@@ -75,13 +76,13 @@ object used to represent either a connection to a database table or the result o
 
 
 \subsection{Member Function Documentation}
-\hypertarget{classentity_a7041812e724f4d4e92f7350ac1ca4730}{}\index{entity@{entity}!add\+Filter@{add\+Filter}}
-\index{add\+Filter@{add\+Filter}!entity@{entity}}
-\subsubsection[{add\+Filter}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::add\+Filter (
+\hypertarget{classentity_a7041812e724f4d4e92f7350ac1ca4730}{\index{entity@{entity}!add\-Filter@{add\-Filter}}
+\index{add\-Filter@{add\-Filter}!entity@{entity}}
+\subsubsection[{add\-Filter}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::add\-Filter (
 \begin{DoxyParamCaption}
 \item[{}]{\$f}
 \end{DoxyParamCaption}
-)}\label{classentity_a7041812e724f4d4e92f7350ac1ca4730}
+)}}\label{classentity_a7041812e724f4d4e92f7350ac1ca4730}
 
 
 Add a filter to this entity An entity can be associated with any number of filters. Data visible in the entity must satisfy at least one of the filters. Filters apply to data, modify and delete operations. 
@@ -91,43 +92,34 @@ Add a filter to this entity An entity can be associated with any number of filte
 {\em \$f} & The filter to be added \\
 \hline
 \end{DoxyParams}
-\hypertarget{classentity_adfb66dcc511ef54670c2999d9f716eb9}{}\index{entity@{entity}!data@{data}}
+\hypertarget{classentity_adfb66dcc511ef54670c2999d9f716eb9}{\index{entity@{entity}!data@{data}}
 \index{data@{data}!entity@{entity}}
-\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::data (
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::data (
 \begin{DoxyParamCaption}
-\item[{}]{\$show\+Keys = {\ttfamily false}}
+\item[{}]{\$show\-Keys = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}\label{classentity_adfb66dcc511ef54670c2999d9f716eb9}
+)}}\label{classentity_adfb66dcc511ef54670c2999d9f716eb9}
 
 
-Gets all applicable entity data This method returns an array containing all data in the base table that match any of the filters currently applied to the entity. The return value is an array of arrays of the following structure\+: 
+Gets all applicable entity data This method returns an array containing all data in the base table that match any of the filters currently applied to the entity. The return value is an array of arrays of the following structure\-: 
 
-Array ( \mbox{[}$<$rownum$>$\mbox{]} =$>$ Array ( \mbox{[}\begin{TabularC}{0}
-\hline
-\end{TabularC}
-=$>$ Array ( \mbox{[}id\mbox{]} =$>$ 
-
-\mbox{[}name\mbox{]} =$>$ $<$column name$>$=\char`\"{}\char`\"{}$>$ )
-
-)
-
-)
+{\ttfamily Array} {\ttfamily (} {\ttfamily \mbox{[}$<$rownum$>$\mbox{]} =$>$ Array} {\ttfamily (} {\ttfamily \mbox{[}$<$table name$>$\mbox{]} =$>$ Array} {\ttfamily (} {\ttfamily \mbox{[}id\mbox{]} =$>$ $<$value$>$} {\ttfamily \mbox{[}name\mbox{]} =$>$ $<$column name$>$} {\ttfamily )} {\ttfamily )} {\ttfamily )}
 
 
 \begin{DoxyParams}{Parameters}
-{\em \$show\+Keys} & If set true, the return array will contain all the primary and foreign key values in the base table (these will be hidden otherwise) \\
+{\em \$show\-Keys} & If set true, the return array will contain all the primary and foreign key values in the base table (these will be hidden otherwise) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 An array of data from the base table that match the currently defined entity 
 \end{DoxyReturn}
-\hypertarget{classentity_a3782e4d51b5f4e688676843e12450a94}{}\index{entity@{entity}!describe@{describe}}
+\hypertarget{classentity_a3782e4d51b5f4e688676843e12450a94}{\index{entity@{entity}!describe@{describe}}
 \index{describe@{describe}!entity@{entity}}
-\subsubsection[{describe}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::describe (
+\subsubsection[{describe}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::describe (
 \begin{DoxyParamCaption}
 \item[{}]{\$erase = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}\label{classentity_a3782e4d51b5f4e688676843e12450a94}
+)}}\label{classentity_a3782e4d51b5f4e688676843e12450a94}
 
 
 Load the specification of the base table columns into the columns attribute. 
@@ -137,14 +129,14 @@ Load the specification of the base table columns into the columns attribute.
 {\em \$erase} & Erase the current description if known and requery the database \\
 \hline
 \end{DoxyParams}
-\hypertarget{classentity_a4d4ed92c955fe0e4160ae7572e693be7}{}\index{entity@{entity}!join@{join}}
+\hypertarget{classentity_a4d4ed92c955fe0e4160ae7572e693be7}{\index{entity@{entity}!join@{join}}
 \index{join@{join}!entity@{entity}}
-\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::join (
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::join (
 \begin{DoxyParamCaption}
 \item[{}]{\$t, }
 \item[{}]{\$j}
 \end{DoxyParamCaption}
-)}\label{classentity_a4d4ed92c955fe0e4160ae7572e693be7}
+)}}\label{classentity_a4d4ed92c955fe0e4160ae7572e693be7}
 
 
 Create an entity representing a join This method creates a new entity containing sufficient information to join the data relevant to two other entities. The data encapsulated in the resultant entity can be viewed using the data method and joined with another entity. Note that for a joined entity to be joined again, the second join must be over columns in the main entity in the first join, not the entity with which it was joined (see Join Chaining). 
@@ -159,46 +151,46 @@ Create an entity representing a join This method creates a new entity containing
 \begin{DoxyReturn}{Returns}
 The joined entity 
 \end{DoxyReturn}
-\hypertarget{classentity_a93f973ae16957a93f792003a89a13be0}{}\index{entity@{entity}!modify@{modify}}
+\hypertarget{classentity_a93f973ae16957a93f792003a89a13be0}{\index{entity@{entity}!modify@{modify}}
 \index{modify@{modify}!entity@{entity}}
-\subsubsection[{modify}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::modify (
+\subsubsection[{modify}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::modify (
 \begin{DoxyParamCaption}
 \item[{}]{\$forceful = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}\label{classentity_a93f973ae16957a93f792003a89a13be0}
+)}}\label{classentity_a93f973ae16957a93f792003a89a13be0}
 
 
-Modify a database record All records matching any filters put on the entity will be modified. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. The columns to be changed and their new values should be set using one set\+Value operation for each column. 
+Modify a database record All records matching any filters put on the entity will be modified. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. The columns to be changed and their new values should be set using one set\-Value operation for each column. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em \$forceful} & Allow all records to be modified by a single call \\
 \hline
 \end{DoxyParams}
-\hypertarget{classentity_a67aada7aaf1810524e8ae93992f2900c}{}\index{entity@{entity}!remove@{remove}}
+\hypertarget{classentity_a67aada7aaf1810524e8ae93992f2900c}{\index{entity@{entity}!remove@{remove}}
 \index{remove@{remove}!entity@{entity}}
-\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::remove (
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::remove (
 \begin{DoxyParamCaption}
 \item[{}]{\$forceful = {\ttfamily false}}
 \end{DoxyParamCaption}
-)}\label{classentity_a67aada7aaf1810524e8ae93992f2900c}
+)}}\label{classentity_a67aada7aaf1810524e8ae93992f2900c}
 
 
-Remove records from the database table This method will remove all records from the entity\textquotesingle{}s base table that match any of the filters that have been applied to it. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. 
+Remove records from the database table This method will remove all records from the entity's base table that match any of the filters that have been applied to it. If no filters exist, the modification will apply to all records in the base table. This will cause an exception to be raised unless the \$forceful parameter is set true. 
 
 
 \begin{DoxyParams}{Parameters}
 {\em \$forceful} & Allow all records to be removed by a single call \\
 \hline
 \end{DoxyParams}
-\hypertarget{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}{}\index{entity@{entity}!set\+Value@{set\+Value}}
-\index{set\+Value@{set\+Value}!entity@{entity}}
-\subsubsection[{set\+Value}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::set\+Value (
+\hypertarget{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}{\index{entity@{entity}!set\-Value@{set\-Value}}
+\index{set\-Value@{set\-Value}!entity@{entity}}
+\subsubsection[{set\-Value}]{\setlength{\rightskip}{0pt plus 5cm}entity\-::set\-Value (
 \begin{DoxyParamCaption}
 \item[{}]{\$c, }
 \item[{}]{\$v}
 \end{DoxyParamCaption}
-)}\label{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}
+)}}\label{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}
 
 
 Set a column value Use this method to set a column value to be used in a create or modify operation. Set as many values as you need before issuing the create or modify. 
@@ -210,6 +202,6 @@ Set a column value Use this method to set a column value to be used in a create 
 \end{DoxyParams}
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
 \item 
-lib/\hyperlink{dbo_8php}{dbo.\+php}\end{DoxyCompactItemize}
+lib/\hyperlink{dbo_8php}{dbo.\-php}\end{DoxyCompactItemize}
