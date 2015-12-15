@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['query',['query',['../classstore.html#a65f535dfea7bcca33de5078d2bd8f18a',1,'store']]]
+  ['join',['join',['../classentity.html#a4d4ed92c955fe0e4160ae7572e693be7',1,'entity']]]
 ];

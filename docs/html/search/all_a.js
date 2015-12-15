@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['query',['query',['../classstore.html#a65f535dfea7bcca33de5078d2bd8f18a',1,'store']]]
+  ['modify',['modify',['../classentity.html#a93f973ae16957a93f792003a89a13be0',1,'entity']]]
 ];
