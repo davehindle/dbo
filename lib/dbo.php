@@ -317,7 +317,6 @@ class constraint {
  */
 
 	function __construct($column, $operand, $operator = constraint::EQ) {
-echo "In constructor for constaint";
 		$ops=array(constraint::EQ => '=', constraint::LT => '<', constraint::GT => '>', constraint::LE => '<=', constraint::LTE => '<=', constraint::GE => '>=', constraint::GTE => '>=', constraint::NE => '<>');
 
 		$this->column = $column;
