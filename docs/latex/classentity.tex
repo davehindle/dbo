@@ -1,0 +1,97 @@
+\hypertarget{classentity}{}\section{entity Class Reference}
+\label{classentity}\index{entity@{entity}}
+
+
+object used to represent either a connection to a database table or the result of a join  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classentity_a2411a96bf911703bf07e8bac90ffa7f7}{\+\_\+\+\_\+construct} (\$\hyperlink{classstore}{store}, \$t, \$d=false)
+\item 
+\hypertarget{classentity_a3782e4d51b5f4e688676843e12450a94}{}{\bfseries describe} (\$erase=false)\label{classentity_a3782e4d51b5f4e688676843e12450a94}
+
+\item 
+\hypertarget{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}{}{\bfseries set\+Value} (\$c, \$v)\label{classentity_a11cae02dda3cc8b9ad4966e33ef11a2a}
+
+\item 
+\hypertarget{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}{}{\bfseries clear\+Values} ()\label{classentity_a7afa5fa5ccc2f9b9a0390cad59ecfede}
+
+\item 
+\hypertarget{classentity_a7041812e724f4d4e92f7350ac1ca4730}{}{\bfseries add\+Filter} (\$f)\label{classentity_a7041812e724f4d4e92f7350ac1ca4730}
+
+\item 
+\hypertarget{classentity_a3c82e6e7a3a2c79306206db541d2a343}{}{\bfseries clear\+Filters} ()\label{classentity_a3c82e6e7a3a2c79306206db541d2a343}
+
+\item 
+\hypertarget{classentity_aa093f16b8fa83dcba92779df20f8a53f}{}{\bfseries create} (\$forceful=false)\label{classentity_aa093f16b8fa83dcba92779df20f8a53f}
+
+\item 
+\hypertarget{classentity_a93f973ae16957a93f792003a89a13be0}{}{\bfseries modify} (\$forceful=false)\label{classentity_a93f973ae16957a93f792003a89a13be0}
+
+\item 
+\hypertarget{classentity_a67aada7aaf1810524e8ae93992f2900c}{}{\bfseries remove} (\$forceful=false)\label{classentity_a67aada7aaf1810524e8ae93992f2900c}
+
+\item 
+\hypertarget{classentity_adfb66dcc511ef54670c2999d9f716eb9}{}{\bfseries data} (\$show\+Keys=false)\label{classentity_adfb66dcc511ef54670c2999d9f716eb9}
+
+\item 
+\hypertarget{classentity_a4d4ed92c955fe0e4160ae7572e693be7}{}{\bfseries join} (\$t, \$j)\label{classentity_a4d4ed92c955fe0e4160ae7572e693be7}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classentity_ae35f24992703a71e751ed6afa981380f}{\$name}
+\item 
+\hyperlink{classentity_a8ce4fa273c17d68fff1dd173a704b109}{\$schema}
+\item 
+\hyperlink{classentity_a4d04649f2fb9b66924ce6a0f23633541}{\$columns} = false
+\item 
+\hyperlink{classentity_a59f264aa884262d60bf96c1b750ffba8}{\$filters} = array()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+object used to represent either a connection to a database table or the result of a join 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classentity_a2411a96bf911703bf07e8bac90ffa7f7}{}\index{entity@{entity}!\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}}
+\index{\+\_\+\+\_\+construct@{\+\_\+\+\_\+construct}!entity@{entity}}
+\subsubsection[{\+\_\+\+\_\+construct}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::\+\_\+\+\_\+construct (
+\begin{DoxyParamCaption}
+\item[{}]{\$store, }
+\item[{}]{\$t, }
+\item[{}]{\$d = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\label{classentity_a2411a96bf911703bf07e8bac90ffa7f7}
+
+\begin{DoxyParams}{Parameters}
+{\em \$store} & D\+B\+O store object containing database connection \\
+\hline
+{\em \$t} & Database table name \\
+\hline
+{\em \$d} & Database table schema \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classentity_a4d04649f2fb9b66924ce6a0f23633541}{}\index{entity@{entity}!\$columns@{\$columns}}
+\index{\$columns@{\$columns}!entity@{entity}}
+\subsubsection[{\$columns}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::\$columns = false}\label{classentity_a4d04649f2fb9b66924ce6a0f23633541}
+Array containing table column information \hypertarget{classentity_a59f264aa884262d60bf96c1b750ffba8}{}\index{entity@{entity}!\$filters@{\$filters}}
+\index{\$filters@{\$filters}!entity@{entity}}
+\subsubsection[{\$filters}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::\$filters = array()}\label{classentity_a59f264aa884262d60bf96c1b750ffba8}
+Array containing registered filters \hypertarget{classentity_ae35f24992703a71e751ed6afa981380f}{}\index{entity@{entity}!\$name@{\$name}}
+\index{\$name@{\$name}!entity@{entity}}
+\subsubsection[{\$name}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::\$name}\label{classentity_ae35f24992703a71e751ed6afa981380f}
+Database table name \hypertarget{classentity_a8ce4fa273c17d68fff1dd173a704b109}{}\index{entity@{entity}!\$schema@{\$schema}}
+\index{\$schema@{\$schema}!entity@{entity}}
+\subsubsection[{\$schema}]{\setlength{\rightskip}{0pt plus 5cm}entity\+::\$schema}\label{classentity_a8ce4fa273c17d68fff1dd173a704b109}
+Name of table schema (not pgsql database) 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\hyperlink{dbo_8php}{dbo.\+php}\end{DoxyCompactItemize}
