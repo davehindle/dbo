@@ -161,7 +161,7 @@ class entity {
 		foreach ($this->columns as $col => $def) {
 			if (isset($def['value'])) {
 				$cols .= ($cols == '' ? '' : ', ').$def['column_name'];
-				$vals .= ($vals == '' ? '' : ', ')."'".$this->store->real_escape_string($def['value'])."'";
+				$vals .= ($vals == '' ? '' : ', ').($def['value'] === constraint::NULL ? 'NULL' : "'".$this->store->real_escape_string($def['value'])."'");
 			}
 		}
 
@@ -188,7 +188,7 @@ class entity {
 		if ($sets == '') throw new exception ("No columns to update");
 		if (!$forceful && ($where == '')) throw new exception ("Attempt to update all rows ignored");
 
-		$sql = "UPDATE $from SET $sets".($where == '' ? "" : " WHERE $where");
+		$sql = "UPDATE $from SET $sets$where";
 
 		if (!$this->store->query($sql)) throw new exception($this->store->error);
 	}
@@ -204,7 +204,7 @@ class entity {
 
 		if (!$forceful && ($where == '')) throw new exception ("Attempt to delete all rows ignored");
 
-		$sql = "DELETE FROM $from".($where == '' ? "" : " WHERE $where");
+		$sql = "DELETE FROM $from$where";
 
 		if (!$this->store->query($sql)) throw new exception($this->store->error);
 	}
