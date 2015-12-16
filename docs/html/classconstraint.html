@@ -97,6 +97,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9e4321b5cf73af8119e6ecaac6069bbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a9e4321b5cf73af8119e6ecaac6069bbc">__construct</a> ($column, $operand, $operator=<a class="el" href="classconstraint.html#ac28f80db55e3b33606f846cf0b2938d5">constraint::EQ</a>)</td></tr>
 <tr class="separator:a9e4321b5cf73af8119e6ecaac6069bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dc612f1698478d40bb6d7f5e89cd690"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dc612f1698478d40bb6d7f5e89cd690"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>sqlColumn</b> ()</td></tr>
+<tr class="separator:a0dc612f1698478d40bb6d7f5e89cd690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71d68e9b1fcebe282598a3b678bfb267"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a71d68e9b1fcebe282598a3b678bfb267"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>sqlOperand</b> ($<a class="el" href="classstore.html">store</a>)</td></tr>
+<tr class="separator:a71d68e9b1fcebe282598a3b678bfb267"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae06aa3a7e4d5cc910bc69d38c8234bb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae06aa3a7e4d5cc910bc69d38c8234bb9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>sqlOperator</b> ()</td></tr>
+<tr class="separator:ae06aa3a7e4d5cc910bc69d38c8234bb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -112,27 +121,30 @@ const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a0bc0ebe8be69587ccea58b06117a76ca">GT</a> = 3</td></tr>
 <tr class="memdesc:a0bc0ebe8be69587ccea58b06117a76ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Greater. <br/></td></tr>
 <tr class="separator:a0bc0ebe8be69587ccea58b06117a76ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab246e898ce088ffd9269c59e310f3edc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab246e898ce088ffd9269c59e310f3edc"></a>
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#ab246e898ce088ffd9269c59e310f3edc">LE</a> = 4</td></tr>
+<tr class="memdesc:ab246e898ce088ffd9269c59e310f3edc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Less or equal. <br/></td></tr>
+<tr class="separator:ab246e898ce088ffd9269c59e310f3edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a869d7d56db8db1bd423e5664c40d9251"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a869d7d56db8db1bd423e5664c40d9251"></a>
-const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a869d7d56db8db1bd423e5664c40d9251">LTE</a> = 4</td></tr>
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a869d7d56db8db1bd423e5664c40d9251">LTE</a> = 5</td></tr>
 <tr class="memdesc:a869d7d56db8db1bd423e5664c40d9251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Less or equal. <br/></td></tr>
 <tr class="separator:a869d7d56db8db1bd423e5664c40d9251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefe4da125b8a4ed53f5767768f077173"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aefe4da125b8a4ed53f5767768f077173"></a>
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#aefe4da125b8a4ed53f5767768f077173">GE</a> = 6</td></tr>
+<tr class="memdesc:aefe4da125b8a4ed53f5767768f077173"><td class="mdescLeft">&#160;</td><td class="mdescRight">Greater or equal. <br/></td></tr>
+<tr class="separator:aefe4da125b8a4ed53f5767768f077173"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7271610e95f862dfcbfeebdc22c1be05"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7271610e95f862dfcbfeebdc22c1be05"></a>
-const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a7271610e95f862dfcbfeebdc22c1be05">GTE</a> = 5</td></tr>
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a7271610e95f862dfcbfeebdc22c1be05">GTE</a> = 7</td></tr>
 <tr class="memdesc:a7271610e95f862dfcbfeebdc22c1be05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Greater or equal. <br/></td></tr>
 <tr class="separator:a7271610e95f862dfcbfeebdc22c1be05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e396087ac8d1599de8c52809d56f601"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e396087ac8d1599de8c52809d56f601"></a>
-const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a7e396087ac8d1599de8c52809d56f601">NE</a> = 6</td></tr>
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#a7e396087ac8d1599de8c52809d56f601">NE</a> = 8</td></tr>
 <tr class="memdesc:a7e396087ac8d1599de8c52809d56f601"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not equal. <br/></td></tr>
 <tr class="separator:a7e396087ac8d1599de8c52809d56f601"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc8fe64f40466c5b37dd6a838c933719"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc8fe64f40466c5b37dd6a838c933719"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$column</b></td></tr>
-<tr class="separator:abc8fe64f40466c5b37dd6a838c933719"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab33b4969b915bffa79091808a0a18041"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab33b4969b915bffa79091808a0a18041"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$operand</b></td></tr>
-<tr class="separator:ab33b4969b915bffa79091808a0a18041"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04b94733df3431f1e39462de1afe845a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04b94733df3431f1e39462de1afe845a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>$operator</b></td></tr>
-<tr class="separator:a04b94733df3431f1e39462de1afe845a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbfe29cd59c13b70e9a1a73815ae785d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbfe29cd59c13b70e9a1a73815ae785d"></a>
+const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classconstraint.html#afbfe29cd59c13b70e9a1a73815ae785d">IN</a> = 9</td></tr>
+<tr class="memdesc:afbfe29cd59c13b70e9a1a73815ae785d"><td class="mdescLeft">&#160;</td><td class="mdescRight">IN. <br/></td></tr>
+<tr class="separator:afbfe29cd59c13b70e9a1a73815ae785d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>object used to define a simple constraint </p>
