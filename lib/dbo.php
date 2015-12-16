@@ -182,7 +182,7 @@ class entity {
 		$this->selectFromWhere(false, $select, $from, $where);
 
 		foreach ($this->columns as $col => $def) {
-			if (isset($def['value'])) $sets .= ($sets == '' ? '' : ', ').$def['column_name'].'='.($def['value'] === constrain::NULL ? 'NULL' : "'".$this->store->real_escape_string($def['value'])."'");
+			if (isset($def['value'])) $sets .= ($sets == '' ? '' : ', ').$def['column_name'].'='.($def['value'] === constraint::NULL ? 'NULL' : "'".$this->store->real_escape_string($def['value'])."'");
 		}
 
 		if ($sets == '') throw new exception ("No columns to update");
@@ -322,7 +322,7 @@ class constraint {
 	}
 
 	function sqlOperand($store) {
-		if ($this->operand === constrain::NULL) return '';
+		if ($this->operand === constraint::NULL) return '';
 
 		if ($this->operator == constraint::IN) {
 			$ret = '';
@@ -335,7 +335,7 @@ class constraint {
 	}
 
 	function sqlOperator() {
-		if ($this->operand === constrain::NULL) return 'IS NULL';
+		if ($this->operand === constraint::NULL) return 'IS NULL';
 
 		$ops = array(constraint::EQ => '=', constraint::LT => '<', constraint::GT => '>', constraint::LE => '<=', constraint::LTE => '<=', constraint::GE => '>=', constraint::GTE => '>=', constraint::NE => '<>', constraint::IN => 'IN');
 
