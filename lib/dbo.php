@@ -30,10 +30,6 @@ class entity {
 		$this->describe();
 	}
 
-/**
- * @brief Load the specification of the base table columns into the columns attribute
- * @param $erase Erase the current description if known and requery the database
- */
 	private function describe($erase = false) {
 		if ($erase) $this->columns = false; // Will this cause a memory leak?
 
