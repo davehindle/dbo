@@ -1,0 +1,63 @@
+store 
+-----
+
+A store is an object that is used for storing and retreiving data from a database. An object of the store class must be created to facilitate database operations.
+
+$s = new store(username, password, database, hostname);
+
+Note that the MySQL drivers ignore the database property. The MySQL database concept maps to the schema property. The postgres driver does use database since postgres has both databases and schemas.
+
+
+entity
+------
+
+An entity allows interaction with a database table.
+
+$e = new entity(store, schema, table);
+
+The entity class comes with a number of methods that allow interaction with the database:
+
+data()
+
+Fetches all relevant data from the entity.
+
+addFilter(filter);
+
+Restricts the scope of data, modify and remove methods (select, update and delete). Each filter added is treated as a separate optional filter (either one or other filter must be met).
+
+clearFilters();
+
+Removes all restrictions (to allow the entity to be used for a different query, update or delete).
+
+remove(force);
+
+Deletes all relevant data from the entity. The force parameter will allow deletion of all data if no filters exists when set true.
+
+modify(force);
+
+Updates all relevant data in the entity with any new values that have been set.
+
+setValue(column, value);
+
+Sets a value to be applied to all relevant rows when the entity is modified.
+
+clearValues();
+
+Remove all values (to allow the entity to be used for another update using different values).
+
+constraint
+----------
+
+A constraint object defines a single restriction of the applicable data. 
+
+$c = new constraint(column, value, operand = '=');
+
+filter
+------
+
+A filter is composed of constraints and is used to restict the visible data in the entity. A single entity object may have no filters, one filter or a number of filters. Each filter is used to define a different set of data so the result is an either / or.
+
+$f = new filter();
+$f = new filter($c);
+
+$f->add($c);
