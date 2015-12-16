@@ -180,10 +180,9 @@ class entity {
 	function modify($forceful = false) {
 		$sets = '';
 		$this->selectFromWhere(false, $select, $from, $where);
-		//$from = $this->schema.".".$this->name;
 
 		foreach ($this->columns as $col => $def) {
-			if (isset($def['value'])) $sets .= ($sets == '' ? '' : ', ').$def['column_name']."='".$this->store->real_escape_string($def['value'])."'";
+			if (isset($def['value'])) $sets .= ($sets == '' ? '' : ', ').$def['column_name'].'='.($def['value'] === constrain::NULL ? 'NULL' : "'".$this->store->real_escape_string($def['value'])."'");
 		}
 
 		if ($sets == '') throw new exception ("No columns to update");
@@ -301,16 +300,17 @@ class constraint {
 	const NE = 8;	/**< @brief Not equal		*/
 	const IN = 9;	/**< @brief IN			*/
 
+	const NULL = "''";	/**< @brief null value */
+
 	private $column;
 	private $operand;
 	private $operator;
 
 /**
  * @param $column Name of the table column
- * @param $operand Actual value to be used in the comparison
+ * @param $operand Actual value to be used in the comparison (or constraint::NULL)
  * @param $operator One of the known operators (default to EQ)
  */
-
 	function __construct($column, $operand, $operator = constraint::EQ) {
 		$this->column = $column;
 		$this->operand = $operand;
@@ -322,6 +322,8 @@ class constraint {
 	}
 
 	function sqlOperand($store) {
+		if ($this->operand === constrain::NULL) return '';
+
 		if ($this->operator == constraint::IN) {
 			$ret = '';
 
@@ -333,6 +335,8 @@ class constraint {
 	}
 
 	function sqlOperator() {
+		if ($this->operand === constrain::NULL) return 'IS NULL';
+
 		$ops = array(constraint::EQ => '=', constraint::LT => '<', constraint::GT => '>', constraint::LE => '<=', constraint::LTE => '<=', constraint::GE => '>=', constraint::GTE => '>=', constraint::NE => '<>', constraint::IN => 'IN');
 
 		return $ops[$this->operator];
