@@ -326,7 +326,13 @@ class constraint {
 	}
 
 	function sqlOperand($store) {
-		if ($this->operator == constraint::IN) return '('.$this->operand.')';
+		if ($this->operator == constraint::IN) {
+			$ret = '';
+
+			foreach ($this->operand as $item) $ret .= "'".$store->real_escape_string($item)."'";
+
+			return "($ret)";
+		}
 		else return "'".$store->real_escape_string($this->operand)."'";
 	}
 
