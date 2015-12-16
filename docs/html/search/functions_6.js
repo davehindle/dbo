@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['query',['query',['../classstore.html#a65f535dfea7bcca33de5078d2bd8f18a',1,'store']]]
+  ['remove',['remove',['../classentity.html#a67aada7aaf1810524e8ae93992f2900c',1,'entity']]]
 ];
