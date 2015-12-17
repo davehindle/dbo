@@ -127,7 +127,7 @@ class entity {
 
 				if ($showKeys || !isset($def['Join'])) {
 					$show[$tn][] = "$t1-".$def['column_name'];
-					$cols["$t1-".$def['column_name']] = "$t1.".$def['column_name']." AS ".$t1."_".$table->name."_".$def['column_name']."";
+					$cols["$t1-".$def['column_name']] = "$t1.".$def['column_name']." AS ".$t1."_DBO_".$table->name."_DBO_".$def['column_name']."";
 				}
 			}
 
@@ -242,7 +242,7 @@ class entity {
 			$data = array();
 
 			foreach ($row as $col => $val) {
-				list($tn, $t, $c) = explode('_', $col);
+				list($tn, $t, $c) = explode('_DBO_', $col);
 				$data[$t][$c] = $val;
 			}
 
