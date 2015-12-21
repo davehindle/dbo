@@ -127,7 +127,7 @@ class entity {
 
 				if ($showKeys || !isset($def['Join'])) {
 					$show[$tn][] = "$t1-".$def['column_name'];
-					$cols["$t1-".$def['column_name']] = "$t1.".$def['column_name']." AS ".$t1."_DBO_".$table->name."_DBO_".$def['column_name']."";
+					$cols["$t1-".$def['column_name']] = "$t1.".$def['column_name']." AS ".$t1."_dbo_".$table->name."_dbo_".$def['column_name']."";
 				}
 			}
 
@@ -242,7 +242,7 @@ class entity {
 			$data = array();
 
 			foreach ($row as $col => $val) {
-				list($tn, $t, $c) = explode('_DBO_', $col);
+				list($tn, $t, $c) = explode('_dbo_', $col);
 				$data[$t][$c] = $val;
 			}
 
@@ -335,7 +335,10 @@ class constraint {
 	}
 
 	function sqlOperator() {
-		if ($this->operand === constraint::NULL) return 'IS NULL';
+		if ($this->operand === constraint::NULL) {
+			if ($this->operator == constraint::NE) return 'IS NOT NULL';
+			else return 'IS NULL';
+		}
 
 		$ops = array(constraint::EQ => '=', constraint::LT => '<', constraint::GT => '>', constraint::LE => '<=', constraint::LTE => '<=', constraint::GE => '>=', constraint::GTE => '>=', constraint::NE => '<>', constraint::IN => 'IN');
 
