@@ -43,6 +43,9 @@ class entity {
 	}
 
 /**
+ * @brief Modify a database table from its entity specification
+ * This method will create a table from an entity if the table named in the entity does not exist, or will modify the table to match the entity.
+ * Use the columns property to define the new table structure.
  *
  */
 	function apply() {
@@ -51,6 +54,7 @@ class entity {
 
 		$this->describe(true);
 	}
+
 /**
  * @param $debug Boolean value - true to output debug information
  */
