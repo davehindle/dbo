@@ -16,6 +16,8 @@ class entity {
 	public $filters = array();	/**< @brief Array containing registered filters */
 	private $store;
 	private $join = false;
+	private $debug = false;
+	private $isReal = false;
 
 /**
  * @param $store DBO store object containing database connection
@@ -36,6 +38,24 @@ class entity {
 		if ($this->columns) return;
 
 		$this->columns = $this->store->describe($this);
+
+		if ($this->columns) $this->isReal = true;
+	}
+
+/**
+ *
+ */
+	function apply() {
+		if ($this->isReal) $this->store->changeTable($this);
+		else $this->store->createTable($this);
+
+		$this->describe(true);
+	}
+/**
+ * @param $debug Boolean value - true to output debug information
+ */
+	function setDebug($debug) {
+		$this->debug = $debug;
 	}
 
 /**
@@ -233,6 +253,8 @@ class entity {
 		$this->selectFromWhere($showKeys, $select, $from, $where);
 
 		$sql = "SELECT $select FROM $from$where";
+
+		if ($this->debug) echo "Executing SQL statement: $sql\n";
 
 		if (!$result = $this->store->query($sql)) throw new exception($this->store->error);
 
